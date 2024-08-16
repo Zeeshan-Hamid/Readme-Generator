@@ -2,7 +2,7 @@
     height: 100%;
     padding: 50px 100px;
     .header{
-        height: calc(100vh - 100px);
+        
         h1{
             text-align: center;
             font-size: 40px;
@@ -10,9 +10,11 @@
         }
         .wrapper{
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             gap: 100px;
+            text-align: center;
+
 
             
             .left{
@@ -25,6 +27,10 @@
                     width: fit-content;
                     padding: 4px 13px;
                     border-radius: 8px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
                 }
                 .header-text{
                     h3{

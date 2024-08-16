@@ -12,6 +12,9 @@
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-quill": "^2.0.0",
+    "react-syntax-highlighter": "^15.5.0",
+    "react-typewriter-effect": "^1.1.0",
     "sass": "^1.77.8",
     "scss": "^0.2.4"
   },
