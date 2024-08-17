@@ -2,33 +2,32 @@ import { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "./form.scss";
+import IconSelector from "../FormIcons/IconSelector";
 
-const Form = ({ setFormData, setIsSubmitted }) => {
-  const [value, setValue] = useState("");
-  const [gridType, setGridType] = useState("1-grid");
-  const [leet, setLeet] = useState(false);
-  const [leetcodeUser, setLeetcodeUser] = useState("");
-  const [heatMap, setHeatMap] = useState(true);
+const Form = ({ setFormData, setIsSubmitted, formData }) => {
+  const [value, setValue] = useState(formData.code || "");
+  const [leet, setLeet] = useState(formData.leetcodeUser || false);
+  const [leetcodeUser, setLeetcodeUser] = useState(formData.leetcodeUser || "");
+  const [heatMap, setHeatMap] = useState(formData.heatmap || false);
+  const [badges, setBadges] = useState(formData.badges || false);
+
   const handleSubmission = (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    formData.append("code", value);
-    if (leet) {
-      formData.append("leetcodeUser", leetcodeUser);
-    }
-    if (heatMap) {
-      formData.append("heatmap", heatMap);
-    }
+    const updatedFormData = {
+      ...formData,
+      banner: e.target.banner.value,
+      name: e.target.name.value,
+      position: e.target.position.value,
+      code: value,
+      icons: formData.icons || [],
+      leetcodeUser: leet ? leetcodeUser : "",
+      heatmap: leet ? heatMap : false,
+      badges: leet ? badges : false,
+    };
 
-    // Merge formData with social links data
-    const input = { ...Object.fromEntries(formData), ...formData };
-    setFormData(input);
+    setFormData(updatedFormData);
     setIsSubmitted(true);
-    console.log(formData);
-  };
-
-  const handleGridChange = (e) => {
-    setGridType(e.target.value);
+    console.log(updatedFormData);
   };
 
   const handleLeet = (e) => {
@@ -43,87 +42,96 @@ const Form = ({ setFormData, setIsSubmitted }) => {
     setHeatMap(e.target.checked);
   };
 
+  const handleBadges = (e) => {
+    setBadges(e.target.checked);
+  };
+
   return (
     <div className="form">
       <form action="" method="post" onSubmit={handleSubmission}>
-        <label>Enter the Banner Image Url</label>
-        <input
-          type="text"
-          name="banner"
-          placeholder="Your Image Url"
-          autoComplete="false"
-        />
-        <label htmlFor="name">Your Name</label>
-        <input
-          type="text"
-          name="name"
-          placeholder="Enter your name"
-          autoComplete="false"
-        />
-        <label htmlFor="position">Position</label>
-        <input
-          type="text"
-          name="position"
-          placeholder="Enter your designation"
-          autoComplete="false"
-        />
-        <div className="grid-selection">
-          <label>
-            <input
-              type="radio"
-              name="grid"
-              value="1-grid"
-              checked={gridType === "1-grid"}
-              onChange={handleGridChange}
-            />
-            1-grid
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="grid"
-              value="2-grid"
-              checked={gridType === "2-grid"}
-              onChange={handleGridChange}
-            />
-            2-grid
-          </label>
-        </div>
-        {gridType === "1-grid" && (
-          <div className="grid-1">
-            <ReactQuill theme="snow" value={value} onChange={setValue} />
-          </div>
-        )}
-        {gridType === "2-grid" && (
-          <div className="grid-2">This is the 2-grid content.</div>
-        )}
+        <div className="form-inputs">
+          <input
+            type="text"
+            name="banner"
+            placeholder="Banner Image Url"
+            autoComplete="false"
+          />
 
-        <div className="leetcodeCard">
-          <p>Want to flex your leetcode stats?</p>
-          <label>
-            <input type="checkbox" name="leetcode" onChange={handleLeet} />
-            Yes
-          </label>
-          {leet && (
-            <div className="leetcode-container">
-              <input
-                type="text"
-                name="leetcode-user"
-                placeholder="Enter your leetcode username"
-                value={leetcodeUser}
-                onChange={handleLeetcodeUserChange}
-              />
-              <label>
-                <input
-                  type="checkbox"
-                  name="heatmap"
-                  onChange={handleHeatmap}
-                />
-                Include heatmap?
-              </label>
-            </div>
-          )}
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter your name"
+            autoComplete="false"
+          />
+
+          <input
+            type="text"
+            name="position"
+            placeholder="Enter your designation"
+            autoComplete="false"
+          />
         </div>
+
+        <div className="text-editor">
+          <h2>Tell the World About Yourself</h2>
+          <ReactQuill
+            theme="snow"
+            value={value}
+            onChange={setValue}
+            style={{ height: "100px" }}
+          />
+        </div>
+
+        <div className="leetcode-card">
+          <h2>Want to flex your leetcode stats?</h2>
+          <div class="checkbox-wrapper-10">
+            <input
+              class="tgl tgl-flip"
+              id="cb5"
+              type="checkbox"
+              name="leetcode"
+              onChange={handleLeet}
+            />
+            <label
+              class="tgl-btn"
+              data-tg-off="Yeah!"
+              data-tg-on="Nope!"
+              for="cb5"></label>
+          </div>
+
+          <div
+            className={
+              leet ? "leetcode-container active" : "leetcode-container"
+            }>
+            <input
+              type="text"
+              name="leetcode-user"
+              placeholder="Enter your leetcode username"
+              value={leetcodeUser}
+              onChange={handleLeetcodeUserChange}
+            />
+            <label>
+              <input
+                type="checkbox"
+                name="heatmap"
+                checked={heatMap}
+                onChange={handleHeatmap}
+              />
+              Include heatmap?
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="badges"
+                checked={badges}
+                onChange={handleBadges}
+              />
+              Include Badges?
+            </label>
+          </div>
+        </div>
+
+        <IconSelector formData={formData} setFormData={setFormData} />
 
         <button type="submit">Submit</button>
       </form>
@@ -132,3 +140,5 @@ const Form = ({ setFormData, setIsSubmitted }) => {
 };
 
 export default Form;
+
+

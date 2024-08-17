@@ -1,0 +1,187 @@
+.form{
+    padding: 20px;
+    margin-top: 20px;
+
+    .form-inputs{
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        input{
+            padding:10px 20px;
+            width: 30%;
+            border-radius: 250px;
+            border: none;
+            box-shadow: 2px 3px 8px #939b9c;
+            font-size: 17px;
+            &:focus{
+                outline: none;
+                transform: scale(1.04);
+                transition: 0.5s ease;
+            }
+        }
+    }
+
+    .text-editor{
+        height: 250px;
+        h2{
+            text-align: center;
+            padding: 20px;
+        }
+    }
+    .leetcode-card{
+        position: relative;
+        margin-bottom: 20px;
+        h2{
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .checkbox-wrapper-10 .tgl {
+    display: none;
+  }
+  .checkbox-wrapper-10{
+    position: absolute;
+    top: 10;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .checkbox-wrapper-10 .tgl,
+  .checkbox-wrapper-10 .tgl:after,
+  .checkbox-wrapper-10 .tgl:before,
+  .checkbox-wrapper-10 .tgl *,
+  .checkbox-wrapper-10 .tgl *:after,
+  .checkbox-wrapper-10 .tgl *:before,
+  .checkbox-wrapper-10 .tgl + .tgl-btn {
+    text-align: center;
+    box-sizing: border-box;
+  }
+  .checkbox-wrapper-10 .tgl::-moz-selection,
+  .checkbox-wrapper-10 .tgl:after::-moz-selection,
+  .checkbox-wrapper-10 .tgl:before::-moz-selection,
+  .checkbox-wrapper-10 .tgl *::-moz-selection,
+  .checkbox-wrapper-10 .tgl *:after::-moz-selection,
+  .checkbox-wrapper-10 .tgl *:before::-moz-selection,
+  .checkbox-wrapper-10 .tgl + .tgl-btn::-moz-selection,
+  .checkbox-wrapper-10 .tgl::selection,
+  .checkbox-wrapper-10 .tgl:after::selection,
+  .checkbox-wrapper-10 .tgl:before::selection,
+  .checkbox-wrapper-10 .tgl *::selection,
+  .checkbox-wrapper-10 .tgl *:after::selection,
+  .checkbox-wrapper-10 .tgl *:before::selection,
+  .checkbox-wrapper-10 .tgl + .tgl-btn::selection {
+    background: none;
+  }
+  .checkbox-wrapper-10 .tgl + .tgl-btn {
+    outline: 0;
+    display: block;
+    width: 4em;
+    height: 2em;
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+  }
+  .checkbox-wrapper-10 .tgl + .tgl-btn:after,
+  .checkbox-wrapper-10 .tgl + .tgl-btn:before {
+    position: relative;
+    display: block;
+    content: "";
+    width: 50%;
+    height: 100%;
+  }
+  .checkbox-wrapper-10 .tgl + .tgl-btn:after {
+    left: 0;
+  }
+  .checkbox-wrapper-10 .tgl + .tgl-btn:before {
+    display: none;
+  }
+  .checkbox-wrapper-10 .tgl:checked + .tgl-btn:after {
+    left: 50%;
+  }
+
+  .checkbox-wrapper-10 .tgl-flip + .tgl-btn {
+    padding: 2px;
+    transition: all 0.2s ease;
+    font-family: sans-serif;
+    perspective: 100px;
+  }
+  .checkbox-wrapper-10 .tgl-flip + .tgl-btn:after,
+  .checkbox-wrapper-10 .tgl-flip + .tgl-btn:before {
+    display: inline-block;
+    transition: all 0.4s ease;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    line-height: 2em;
+    font-weight: bold;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    border-radius: 4px;
+  }
+  .checkbox-wrapper-10 .tgl-flip + .tgl-btn:after {
+    content: attr(data-tg-on);
+    background: #FF3A19;
+    transform: rotateY(-180deg);
+  }
+  .checkbox-wrapper-10 .tgl-flip + .tgl-btn:before {
+    background: #02C66F;
+    content: attr(data-tg-off);
+  }
+  .checkbox-wrapper-10 .tgl-flip + .tgl-btn:active:before {
+    transform: rotateY(-20deg);
+  }
+  .checkbox-wrapper-10 .tgl-flip:checked + .tgl-btn:before {
+    transform: rotateY(180deg);
+  }
+  .checkbox-wrapper-10 .tgl-flip:checked + .tgl-btn:after {
+    transform: rotateY(0);
+    left: 0;
+    background: #FF3A19;
+  }
+  .checkbox-wrapper-10 .tgl-flip:checked + .tgl-btn:active:after {
+    transform: rotateY(20deg);
+  }
+
+  .leetcode-container{
+    display: none;
+     transition:all 1s ease;
+    &.active{
+     
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 70px;
+    
+    input[type='text']{
+        padding: 10px 20px;
+        width: 30%;
+        border-radius: 250px;
+        border: none;
+         box-shadow: 2px 3px 8px #939b9c;
+        margin-bottom: 10px;
+        font-size: 16px;
+        &:focus{
+            outline: none;
+        }
+    }
+    }
+    input{
+      cursor: pointer;
+    }
+  }
+        
+    }
+
+    button{
+      padding: 8px 20px;
+      text-align: center;
+    }
+}

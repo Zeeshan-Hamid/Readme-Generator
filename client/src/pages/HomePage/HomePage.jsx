@@ -2,41 +2,44 @@ import { useState } from "react";
 import "./HomePage.scss";
 import Form from "../../Components/Form/Form";
 import SyntaxContainer from "../../Components/SyntaxContainer/SyntaxContainer";
-
+import IconSelector from "../../Components/FormIcons/IconSelector";
 
 const HomePage = () => {
   const [formData, setFormData] = useState({});
-
   const [isSubmitted, setIsSubmitted] = useState(false);
+
   console.log(formData);
+
+  const stars = Array.from({ length: 20 }, (_, i) => i);
 
   return (
     <div className="home-page">
       <section className="header" id="section1">
-        <h1 className="title">ReadMe Generator</h1>
+        <div className="night">
+          {stars.map((_, index) => (
+            <div key={index} className="shooting_star"></div>
+          ))}
+        </div>
         <div className="wrapper">
-          <div className="left">
-            <div className="greet">
-              <span>Hi there</span>
-              <img
-                src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif"
-                alt="Waving hand"
-                style={{ width: "25px", marginRight: "8px" }}
-              />
+          <h1>ReadMe Generator</h1>
+          <div className="flex-wrapper">
+            <div className="left">
+              <div className="greet">Hi there!</div>
+              <h3>Welcome to the Coolest Readme Generator on the Internet</h3>
             </div>
-            <div className="header-text">
-              <h3>
-                Welcome to the Coolest <span>Readme Generator</span> on
-                Internet!
-              </h3>
+            <div className="right">
+              <img src="/bg-3.png" alt="" />
             </div>
-            <a href="#">Lets Go!!</a>
           </div>
         </div>
       </section>
 
       <section id="section2" className="form">
-        <Form setFormData={setFormData} setIsSubmitted={setIsSubmitted} />
+        <Form
+          setFormData={setFormData}
+          setIsSubmitted={setIsSubmitted}
+          formData={formData}
+        />
       </section>
 
       <section id="section3" className="container">
