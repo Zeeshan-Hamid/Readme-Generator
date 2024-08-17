@@ -1,7 +1,9 @@
 import "./syntaxContainer.scss";
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import jsx from "react-syntax-highlighter/dist/esm/languages/prism/jsx";
-import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { materialDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 SyntaxHighlighter.registerLanguage("jsx", jsx);
 
@@ -57,13 +59,50 @@ const SyntaxContainer = ({ isSubmitted, formData }) => {
     return outputParts.join("\n").trim();
   };
 
+  const copyCodeToClipboard = () => {
+    const code = generateCodeOutput();
+    navigator.clipboard.writeText(code).then(
+      () => {
+        toast.success("Code copied to clipboard!");
+      },
+      (err) => {
+        toast.error("Failed to copy code.");
+        console.error("Failed to copy code: ", err);
+      }
+    );
+  };
+
+  const downloadCodeFile = () => {
+    const code = generateCodeOutput();
+    const blob = new Blob([code], { type: "text/markdown" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "ReadMe.md";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="syntax-container">
       {isSubmitted && (
-        <SyntaxHighlighter language="jsx" style={dark}>
-          {generateCodeOutput()}
-        </SyntaxHighlighter>
+        <>
+          <SyntaxHighlighter language="jsx" style={materialDark}>
+            {generateCodeOutput()}
+          </SyntaxHighlighter>
+          <div className="button-group">
+            <button onClick={copyCodeToClipboard} className="copy-button">
+              Copy Code
+            </button>
+            <button onClick={downloadCodeFile} className="download-button">
+              Download Code
+            </button>
+          </div>
+        </>
       )}
+      <ToastContainer />
     </div>
   );
 };

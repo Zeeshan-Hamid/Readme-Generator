@@ -2,6 +2,15 @@
     padding: 20px;
     margin-top: 20px;
 
+    .form-heading{
+      text-align: center;
+      h1{
+        padding: 0 20px 20px 20px;
+        font-size: 30px;
+        margin-bottom: 20px;
+      }
+    }
+
     .form-inputs{
         margin-bottom: 20px;
         display: flex;
@@ -173,15 +182,21 @@
         }
     }
     }
-    input{
-      cursor: pointer;
-    }
+    
   }
         
     }
 
-    button{
-      padding: 8px 20px;
+    .button{
       text-align: center;
+      button{
+      padding: 10px 30px;
+      border: none;
+      border-radius: 250px;
+      box-shadow: 2px 3px 8px #999;
+      cursor: pointer;
+      font-size: 17px;
+      background: none;
+    }
     }
 }

@@ -1,0 +1,49 @@
+.syntax-container {
+  position: relative;
+
+  .button-group {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+
+    .copy-button, .download-button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .copy-button {
+      background-color: #007bff;
+      color: white;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+
+    .download-button {
+      background-color: #28a745;
+      color: white;
+
+      &:hover {
+        background-color: #218838;
+      }
+    }
+  }
+}
+
+
+.Toastify__toast-container {
+  top: 20px; 
+}
+
+.Toastify__toast--success {
+  background-color: #28a745; 
+}
+
+.Toastify__toast--error {
+  background-color: #dc3545; 
+}

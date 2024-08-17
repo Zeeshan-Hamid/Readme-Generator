@@ -16,6 +16,13 @@ const categories = {
     "jquery",
     "ember",
     "lit",
+    "nextjs",
+    "nuxt",
+    "jquery",
+   
+    "pug",
+    "sass",
+    "less",
   ],
   Backend: [
     "nodejs",
@@ -36,6 +43,9 @@ const categories = {
     "elixir",
     "kotlin",
     "graphql",
+    
+    "symfony",
+    
   ],
   Databases: [
     "mongodb",
@@ -46,6 +56,9 @@ const categories = {
     "dynamodb",
     "redis",
     "planetscale",
+    
+    "firebase",
+    
   ],
   Tools: [
     "docker",
@@ -56,15 +69,18 @@ const categories = {
     "git",
     "github",
     "gitlab",
-
     "jenkins",
-
     "vscode",
     "vim",
     "emacs",
     "sublime",
     "webpack",
     "babel",
+  
+    "gulp",
+    "postman",
+    "figma",
+    
   ],
   Others: [
     "figma",
@@ -80,6 +96,8 @@ const categories = {
     "pnpm",
     "vite",
     "rollupjs",
+    "notion",
+    
   ],
 };
 
@@ -102,7 +120,7 @@ const IconSelector = ({ setFormData }) => {
       <h2>Show Off Your Skills!</h2>
       {Object.entries(categories).map(([category, icons]) => (
         <div key={category} className="icon-category">
-          <h3>{category}</h3>
+          <h4>{category}</h4>
           <div className="icons">
             {icons.map((icon) => (
               <label key={icon} className="icon-checkbox">

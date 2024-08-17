@@ -26,6 +26,7 @@ const Form = ({ setFormData, setIsSubmitted, formData }) => {
     };
 
     setFormData(updatedFormData);
+    localStorage.setItem("formData", JSON.stringify(updatedFormData));
     setIsSubmitted(true);
     console.log(updatedFormData);
   };
@@ -49,12 +50,16 @@ const Form = ({ setFormData, setIsSubmitted, formData }) => {
   return (
     <div className="form">
       <form action="" method="post" onSubmit={handleSubmission}>
+        <div className="form-heading">
+          <h1>Lets Get Started</h1>
+        </div>
         <div className="form-inputs">
           <input
             type="text"
             name="banner"
             placeholder="Banner Image Url"
             autoComplete="false"
+            defaultValue={formData.banner}
           />
 
           <input
@@ -62,6 +67,7 @@ const Form = ({ setFormData, setIsSubmitted, formData }) => {
             name="name"
             placeholder="Enter your name"
             autoComplete="false"
+            defaultValue={formData.name}
           />
 
           <input
@@ -69,6 +75,7 @@ const Form = ({ setFormData, setIsSubmitted, formData }) => {
             name="position"
             placeholder="Enter your designation"
             autoComplete="false"
+            defaultValue={formData.position}
           />
         </div>
 
@@ -133,7 +140,9 @@ const Form = ({ setFormData, setIsSubmitted, formData }) => {
 
         <IconSelector formData={formData} setFormData={setFormData} />
 
-        <button type="submit">Submit</button>
+        <div className="button">
+          <button type="submit">Submit</button>
+        </div>
       </form>
     </div>
   );
