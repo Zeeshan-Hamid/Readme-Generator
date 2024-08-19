@@ -1,9 +1,15 @@
+@import '../../styles/responsive.scss';
 .home-page{
     font-family: "Lato", sans-serif;
     padding: 50px 100px;
+    @include md{
+        padding: 25px;
+        padding-top: 20px;
+    }
     .header{
         margin-top: 24px;
-        background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+        background-image: url('/header.png');
+        background-size: cover;
         height: 75vh;
         overflow: hidden;
         display: flex;
@@ -14,19 +20,28 @@
 
         $shooting-time: 3000ms;
 
+        @include sm{
+            height: calc(100vh - 100px);
+            border-radius: 15px;
+            background-image: url('/header2.png');
+        background-size: cover;
+        }
+
         .night {
         position: relative;
         width: 100%;
         height: 75%;
         transform: rotateZ(45deg);
-        // animation: sky 200000ms linear infinite;
+
+        
+      
         }
 
         .shooting_star {
         position: absolute;
         left: 50%;
         top: 50%;
-        // width: 100px;
+       
         height: 2px;
         background: linear-gradient(-45deg, rgba(95, 145, 255, 1), rgba(0, 0, 255, 0));
         border-radius: 999px;
@@ -135,13 +150,19 @@
             width: 80%;
             margin: auto;
             padding: 0 50px;
-            top: 45%;
+            top: 40%;
             left: 50%;
             transform: translate(-50%, -50%);
-            h1{
-                text-align: center;
-                color: #fff;
-                font-size: 48px;
+
+            @include sm{
+                top: 45%;
+                width: 100%;
+            }
+            span{
+
+                img{
+                    width: 150px;
+                }
             }
             .flex-wrapper{
                 z-index: 9999;
@@ -149,21 +170,30 @@
                 justify-content: center;
                 align-items: center;
                 color: #fff;
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+
+                
+
+                
                 
             .left{
                 
                 color: #fff;
-                .greet{
-                    margin-bottom: 20px;
-                    border: 1px solid #fff;
-                    width: fit-content;
-                    padding: 6px 15px;
-                    border-radius: 7px;
-                }
+              
+                
                 h3{
                     font-size: 40px;
-                    padding-right: 150px;
                     margin-bottom: 20px;
+                    @include sm{
+                        text-align: center;
+                        font-size: 25px;
+                        line-height: 1.6;
+                        width: 100%;
+                        padding: 0;
+                        
+                    }
                 }
 
                 a{
@@ -174,13 +204,29 @@
                     border: 1px solid #fff;
                     padding: 10px 20px;
                     border-radius: 12px;
-
+                    
                     &:hover{
                         background-color: #fff;
                         color: black;
                         transition: 0.4s ease;
                     }
 
+                    @include sm{
+                        text-align: center;
+                        margin-top: 5px;
+                        font-size: 18px;
+                        background-color: #fff;
+                        color: #000;
+                    }
+
+                }
+
+                @include sm{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                   
                 }
                 
             }
@@ -188,6 +234,10 @@
                 
                 img{
                     width: 300px;
+                    @include sm{
+                        
+                        width: 280px;
+                    }
                 }
             }
             }

@@ -1,12 +1,18 @@
+@import '../../styles/responsive.scss';
 .icon-selector {
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 20px;
   padding-top: 20px;
+  @include sm{
+    padding: 0;
+  }
   h2{
     text-align: center;
   }
+
+
 
   .icon-category {
     margin-bottom: 30px;

@@ -1,6 +1,12 @@
+@import '../../styles/responsive.scss';
+
 .form{
     padding: 20px;
     margin-top: 20px;
+
+    @include sm{
+      padding: 10px;
+    }
 
     .form-heading{
       text-align: center;
@@ -8,6 +14,12 @@
         padding: 0 20px 20px 20px;
         font-size: 30px;
         margin-bottom: 20px;
+
+        @include sm{
+          padding: 0;
+          margin-top: -25px;
+          font-size: 25px;
+        }
       }
     }
 
@@ -16,6 +28,11 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        @include sm{
+          flex-direction: column;
+          justify-content: space-between;
+         
+        }
         input{
             padding:10px 20px;
             width: 30%;
@@ -28,6 +45,12 @@
                 transform: scale(1.04);
                 transition: 0.5s ease;
             }
+            @include sm{
+               margin: 10px 0;
+               width: 100%;
+               border: 1px solid;
+
+            }
         }
     }
 
@@ -36,6 +59,9 @@
         h2{
             text-align: center;
             padding: 20px;
+        }
+        @include sm{
+          margin-bottom: 50px;
         }
     }
     .leetcode-card{
@@ -87,6 +113,7 @@
     height: 2em;
     position: relative;
     text-align: center;
+    
     cursor: pointer;
     -webkit-user-select: none;
        -moz-user-select: none;
@@ -116,6 +143,7 @@
     transition: all 0.2s ease;
     font-family: sans-serif;
     perspective: 100px;
+    
   }
   .checkbox-wrapper-10 .tgl-flip + .tgl-btn:after,
   .checkbox-wrapper-10 .tgl-flip + .tgl-btn:before {
@@ -133,6 +161,7 @@
     -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
     border-radius: 4px;
+    
   }
   .checkbox-wrapper-10 .tgl-flip + .tgl-btn:after {
     content: attr(data-tg-on);
@@ -168,6 +197,7 @@
     align-items: center;
     flex-direction: column;
     margin-top: 70px;
+   
     
     input[type='text']{
         padding: 10px 20px;
@@ -180,11 +210,19 @@
         &:focus{
             outline: none;
         }
+        @include sm{
+          width: 100%;
+          border: 1px solid;
+        }
     }
     }
     
   }
         
+    }
+
+    .skills{
+      margin-top: 40px;
     }
 
     .button{
@@ -197,6 +235,10 @@
       cursor: pointer;
       font-size: 17px;
       background: none;
+
+      @include sm{
+        color: #000;
+      }
     }
     }
 }

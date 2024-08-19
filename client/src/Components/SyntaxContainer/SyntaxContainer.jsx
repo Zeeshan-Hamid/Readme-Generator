@@ -45,11 +45,11 @@ const SyntaxContainer = ({ isSubmitted, formData }) => {
         <img align="top" flex-grow="1" src="https://leetcard.jacoblin.cool/${
           formData.leetcodeUser
         }?theme=dark&font=Nunito${formData.heatmap ? "&ext=heatmap" : ""}" />  
-      </p>`);
+      </p></hr>`);
     }
 
     if (formData.icons && formData.icons.length) {
-      outputParts.push(`<p align="center">
+      outputParts.push(`<p align="center"><h2>Languages and Tools I know</h2></br>
         <img src="https://skillicons.dev/icons?i=${formData.icons.join(
           ","
         )}" alt="icons" />

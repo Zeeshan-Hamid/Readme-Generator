@@ -138,7 +138,9 @@ const Form = ({ setFormData, setIsSubmitted, formData }) => {
           </div>
         </div>
 
-        <IconSelector formData={formData} setFormData={setFormData} />
+        <div className="skills">
+          <IconSelector formData={formData} setFormData={setFormData} />
+        </div>
 
         <div className="button">
           <button type="submit">Submit</button>

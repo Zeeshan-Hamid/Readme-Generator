@@ -31,18 +31,20 @@ const HomePage = () => {
             <div key={index} className="shooting_star"></div>
           ))}
         </div>
+
         <div className="wrapper">
-          <h1>ReadMe Generator</h1>
           <div className="flex-wrapper">
+            <div className="top">
+              <span>
+                <img src="/logo.png" alt="" />
+              </span>
+            </div>
             <div className="left">
-              <div className="greet">Hi there!</div>
-              <h3>Welcome to the Coolest Readme Generator on the Internet</h3>
+              {/* <div className="greet">Hi there!</div> */}
+              <h3>Where your README files get that Extra Drip</h3>
               <a href="#section2" onClick={handleScroll}>
                 Let's Go!
               </a>
-            </div>
-            <div className="right">
-              <img src="/bg-3.png" alt="" />
             </div>
           </div>
         </div>
